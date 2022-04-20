@@ -1,17 +1,19 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import Header from "../../components/Header/";
 import { API_KEY } from "../../config/API_KEY";
 import Loading from "../../components/loading/";
-import "./style.css";
-
+import { GlobalContext } from "../../contexts/GlobalContext";
 import IconMax from "../../assets/images/icons/icon-max.png";
 import IconMin from "../../assets/images/icons/icon-min.svg";
 
+import "./style.css";
+
 const Home = () => {
+  const {input} = useContext(GlobalContext)
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
-  const BASE_URL = `https://api.hgbrasil.com/weather?format=json-cors&key=${API_KEY}&city_name=Maceio`;
+  const BASE_URL = `https://api.hgbrasil.com/weather?format=json-cors&key=${API_KEY}&city_name=${input}`;
 
   useEffect(() => {
     async function fetchCity() {

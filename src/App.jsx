@@ -1,10 +1,13 @@
 import './assets/styles/Global.css'
+import { GlobalData } from './contexts/GlobalContext'
 import Home from './pages/Home/'
 
 function App() {
 
   return (
-      <Home />
+      <GlobalData>
+        <Home />
+      </GlobalData>
   )
 }
 
