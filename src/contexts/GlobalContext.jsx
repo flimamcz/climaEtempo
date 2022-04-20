@@ -4,7 +4,7 @@ export const GlobalContext = createContext()
 
 export const GlobalData = ({children}) => {
 
-    const [input, setInput] = useState('')
+    const [input, setInput] = useState('Brasilia')
 
     return (
         <GlobalContext.Provider value={{input, setInput}}>
