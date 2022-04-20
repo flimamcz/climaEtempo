@@ -151,6 +151,10 @@
 }
 
 @media screen and (max-width: 767px) {
+
+    .card-principal {
+        width: 90%;
+    }
     .cards-secundario ul {
         width: 100%;
         display: grid;
