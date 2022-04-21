@@ -1,9 +1,15 @@
-import { Fragment, useContext, useRef } from "react";
-import "./style.css";
+import { Fragment, useContext } from "react";
 import Logo from "../../assets/images/Logo.svg";
 import iconSearch from "../../assets/images/icons/icon-search.svg";
 import iconNight from "../../assets/images/icons/icon-night-top.svg";
 import { GlobalContext } from "../../contexts/GlobalContext";
+import {
+  Header,
+  ContainerHeader,
+  Form,
+  Prevision,
+  ContainerPrevision,
+} from "./style";
 
 const index = ({ data }) => {
   const { setInput } = useContext(GlobalContext);
@@ -15,15 +21,15 @@ const index = ({ data }) => {
 
   return (
     <Fragment>
-      <header className="header">
-        <div className="container">
+      <Header>
+        <ContainerHeader>
           <div className="logo">
             <a href="/">
               <img src={Logo} alt="Image logo climaEtempo" />
             </a>
           </div>
 
-          <form className="form" onSubmit={(event) => event.preventDefault()}>
+          <Form className="form" onSubmit={(event) => event.preventDefault()}>
             <input
               type="text"
               required
@@ -32,12 +38,12 @@ const index = ({ data }) => {
             <button onClick={handleClick}>
               <img src={iconSearch} alt="Icon it lupa and zoom" />
             </button>
-          </form>
-        </div>
-      </header>
+          </Form>
+        </ContainerHeader>
+      </Header>
 
-      <div className="prevision">
-        <div className="container">
+      <Prevision>
+        <ContainerPrevision>
           <p>Clima e Previsão do tempo</p>
           <span>
             <img src={iconNight} alt="icon night moon" />
@@ -49,8 +55,8 @@ const index = ({ data }) => {
               <p>Carregando...</p>
             )}
           </span>
-        </div>
-      </div>
+        </ContainerPrevision>
+      </Prevision>
     </Fragment>
   );
 };

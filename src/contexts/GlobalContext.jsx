@@ -1,14 +1,13 @@
 import { createContext, useState } from "react";
 
-export const GlobalContext = createContext()
+export const GlobalContext = createContext();
 
-export const GlobalData = ({children}) => {
+export const GlobalData = ({ children }) => {
+  const [input, setInput] = useState("Brasilia");
 
-    const [input, setInput] = useState('Brasilia')
-
-    return (
-        <GlobalContext.Provider value={{input, setInput}}>
-            {children}
-        </GlobalContext.Provider>
-    )
-}
+  return (
+    <GlobalContext.Provider value={{ input, setInput }}>
+      {children}
+    </GlobalContext.Provider>
+  );
+};

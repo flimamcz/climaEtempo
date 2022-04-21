@@ -14,6 +14,7 @@ html {
 body{
     background: #F2f2f2;
     font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
 }
 
 li{

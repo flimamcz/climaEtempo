@@ -1,14 +1,14 @@
-import React from 'react'
-import './style.css'
+import React from "react";
+import { ContainerLoading, CircleElement } from "./style";
 
 const Loading = () => {
   return (
-    <div className='container-loading'>
-      <p className='circle'></p>
-      <p className='circle'></p>
-      <p className='circle'></p>
-    </div>
-  )
-}
+    <ContainerLoading>
+      <CircleElement></CircleElement>
+      <CircleElement></CircleElement>
+      <CircleElement></CircleElement>
+    </ContainerLoading>
+  );
+};
 
-export default Loading
+export default Loading;

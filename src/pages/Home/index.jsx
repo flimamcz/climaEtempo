@@ -1,15 +1,23 @@
 import { Fragment, useContext, useEffect, useState } from "react";
 import Header from "../../components/Header/";
+import Footer from "../../components/Footer/";
 import { API_KEY } from "../../config/API_KEY";
 import Loading from "../../components/loading/";
 import { GlobalContext } from "../../contexts/GlobalContext";
 import IconMax from "../../assets/images/icons/icon-max.png";
 import IconMin from "../../assets/images/icons/icon-min.svg";
 
-import "./style.css";
+import {
+  ContainerCards,
+  MainCard,
+  SecondaryCard,
+  CardWeather,
+  WeekDayCondition,
+} from "./style";
+
 
 const Home = () => {
-  const {input} = useContext(GlobalContext)
+  const { input } = useContext(GlobalContext);
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
@@ -36,7 +44,7 @@ const Home = () => {
           date,
           time,
           wind_speedy,
-          img_id
+          img_id,
         } = json.results;
 
         const dataCity = {
@@ -66,21 +74,19 @@ const Home = () => {
       </Fragment>
     );
 
-    
-
   return (
     <Fragment>
       {data && (
-        <div>
+        <div className="container">
           <Header data={data} />
-          <div className="container-cards">
+          <ContainerCards>
             <div className="cards-sup">
-              <div className="card-principal">
-                <h1> 
-                  Tempo agora em: {data.city}</h1>
+              <MainCard>
+                <h1>Tempo agora em: {data.city}</h1>
                 <p className="temp">
                   <span>
-                    {data.temp}<sup>°C</sup>
+                    {data.temp}
+                    <sup>°C</sup>
                   </span>
                 </p>
 
@@ -102,15 +108,15 @@ const Home = () => {
                     <p>{data.humidity}%</p>
                   </div>
                 </div>
-              </div>
+              </MainCard>
 
-              <div className="cards-secundario">
+              <SecondaryCard>
                 <ul>
                   {data &&
                     data.forecast.map(
                       ({ description, max, min, weekday, date }) => (
                         <li key={date}>
-                          <div className="card-temperatura">
+                          <CardWeather>
                             <p>Temperatura</p>
                             <div className="min-max">
                               <span>
@@ -130,25 +136,26 @@ const Home = () => {
                                 {max} <sup>°C</sup>
                               </span>
                             </div>
-                          </div>
+                          </CardWeather>
 
-                          <div className="weekday-condition">
+                          <WeekDayCondition className="weekday-condition">
                             <div>
                               <p>
                                 {date} - {weekday}
                               </p>
                             </div>
                             <span>{description}</span>
-                          </div>
+                          </WeekDayCondition>
                         </li>
                       )
                     )}
                 </ul>
-              </div>
+              </SecondaryCard>
             </div>
-          </div>
+          </ContainerCards>
         </div>
       )}
+      <Footer />
     </Fragment>
   );
 };
