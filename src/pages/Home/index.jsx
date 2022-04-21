@@ -66,6 +66,8 @@ const Home = () => {
       </Fragment>
     );
 
+    
+
   return (
     <Fragment>
       {data && (
@@ -77,7 +79,6 @@ const Home = () => {
                 <h1> 
                   Tempo agora em: {data.city}</h1>
                 <p className="temp">
-                  <img src={`http://assets.api.hgbrasil.com/weather/images/${data.img_id}.png`} width="80"/>
                   <span>
                     {data.temp}<sup>°C</sup>
                   </span>

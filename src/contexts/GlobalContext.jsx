@@ -12,4 +12,3 @@ export const GlobalData = ({children}) => {
         </GlobalContext.Provider>
     )
 }
-
