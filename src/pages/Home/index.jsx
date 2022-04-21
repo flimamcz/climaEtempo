@@ -36,9 +36,11 @@ const Home = () => {
           date,
           time,
           wind_speedy,
+          img_id
         } = json.results;
 
         const dataCity = {
+          img_id,
           date,
           time,
           wind_speedy,
@@ -72,10 +74,13 @@ const Home = () => {
           <div className="container-cards">
             <div className="cards-sup">
               <div className="card-principal">
-                <h1>Tempo agora em: {data.city}</h1>
+                <h1> 
+                  Tempo agora em: {data.city}</h1>
                 <p className="temp">
-                  {data.temp}
-                  <sup>°C</sup>
+                  <img src={`http://assets.api.hgbrasil.com/weather/images/${data.img_id}.png`} width="80"/>
+                  <span>
+                    {data.temp}<sup>°C</sup>
+                  </span>
                 </p>
 
                 <div className="date-time">

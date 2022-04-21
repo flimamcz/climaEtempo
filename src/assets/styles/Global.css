@@ -19,3 +19,8 @@ body{
 li{
     list-style-type: none;
 }
+
+img{
+    display: inline-block;
+    max-width: 100%;
+}
