@@ -1,6 +1,7 @@
 import { Fragment, useContext, useEffect, useState } from "react";
 import Header from "../../components/Header/";
 import Footer from "../../components/Footer/";
+import ModalErro from "../../components/ModalErro/";
 import { API_KEY } from "../../config/API_KEY";
 import Loading from "../../components/loading/";
 import { GlobalContext } from "../../contexts/GlobalContext";
@@ -28,10 +29,12 @@ const Home = () => {
       let response;
       let json;
       try {
+        setError(null)
         setLoading(true);
         response = await fetch(BASE_URL);
         json = await response.json();
       } catch (error) {
+        setError(true)
         json = null;
       } finally {
         const {
@@ -66,6 +69,9 @@ const Home = () => {
     fetchCity();
   }, [BASE_URL]);
 
+  if(error) return (
+    <ModalErro />
+  )
   if (loading)
     return (
       <Fragment>
