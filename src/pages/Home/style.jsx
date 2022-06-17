@@ -12,7 +12,7 @@ export const MainCard = styled.div`
   width: 70%;
   margin: 0 auto 32px auto;
   padding: 32px;
-  color: #4b4949;
+  color: #1c1c1c;
   box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.15);
   border-radius: 3px;
   animation: opacityCards 0.5s forwards;
@@ -43,7 +43,8 @@ export const MainCard = styled.div`
   }
 
   .date-time p {
-    font-weight: 500;
+    font-weight: 600;
+    color: #1c1c1c;
   }
 
   .description {
