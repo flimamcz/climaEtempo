@@ -2,7 +2,7 @@ import { Fragment, useContext, useEffect, useState } from "react";
 import Header from "../../components/Header/";
 import Footer from "../../components/Footer/";
 import ModalErro from "../../components/ModalErro/";
-import { API_KEY } from "../../config/API_KEY";
+import { API_KEY } from "../../config/API_KEY/index";
 import Loading from "../../components/loading/";
 import { GlobalContext } from "../../contexts/GlobalContext";
 import IconMax from "../../assets/images/icons/icon-max.png";
